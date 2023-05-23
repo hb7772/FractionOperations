@@ -2,10 +2,18 @@
 //  main.swift
 //  FractionOperations
 //
-//  Created by Bence Hupp on 2023. 05. 20..
+//  Created by Bence Hupp
 //
 
 import Foundation
 
-print("Hello, World!")
+// Ideally such dependencies should be registered and resolved by a DI framework, but for such a small project like this would be overkill
+let consoleIO = ConsoleIO()
+let fractionOperations = FractionOperations(consoleIO: consoleIO)
+
+if CommandLine.argc < 2 {
+    fractionOperations.interactiveMode()
+} else {
+    fractionOperations.staticMode()
+}
 

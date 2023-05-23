@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		C6BF7ECC2A189F8400813B3E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7ECB2A189F8400813B3E /* main.swift */; };
+		C6BF7ED32A19677800813B3E /* ConsoleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7ED22A19677800813B3E /* ConsoleIO.swift */; };
+		C6BF7ED52A19683900813B3E /* FractionOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7ED42A19683900813B3E /* FractionOperations.swift */; };
+		C6BF7ED92A1972CA00813B3E /* FractionCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7ED82A1972CA00813B3E /* FractionCalculator.swift */; };
+		C6BF7EDB2A1AB6FF00813B3E /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7EDA2A1AB6FF00813B3E /* Stack.swift */; };
+		C6BF7EDD2A1C04F300813B3E /* FractionConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7EDC2A1C04F300813B3E /* FractionConverter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +30,11 @@
 /* Begin PBXFileReference section */
 		C6BF7EC82A189F8400813B3E /* FractionOperations */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FractionOperations; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6BF7ECB2A189F8400813B3E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C6BF7ED22A19677800813B3E /* ConsoleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleIO.swift; sourceTree = "<group>"; };
+		C6BF7ED42A19683900813B3E /* FractionOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractionOperations.swift; sourceTree = "<group>"; };
+		C6BF7ED82A1972CA00813B3E /* FractionCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractionCalculator.swift; sourceTree = "<group>"; };
+		C6BF7EDA2A1AB6FF00813B3E /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		C6BF7EDC2A1C04F300813B3E /* FractionConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractionConverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +68,11 @@
 			isa = PBXGroup;
 			children = (
 				C6BF7ECB2A189F8400813B3E /* main.swift */,
+				C6BF7ED22A19677800813B3E /* ConsoleIO.swift */,
+				C6BF7ED42A19683900813B3E /* FractionOperations.swift */,
+				C6BF7ED82A1972CA00813B3E /* FractionCalculator.swift */,
+				C6BF7EDA2A1AB6FF00813B3E /* Stack.swift */,
+				C6BF7EDC2A1C04F300813B3E /* FractionConverter.swift */,
 			);
 			path = FractionOperations;
 			sourceTree = "<group>";
@@ -121,6 +136,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6BF7ECC2A189F8400813B3E /* main.swift in Sources */,
+				C6BF7ED52A19683900813B3E /* FractionOperations.swift in Sources */,
+				C6BF7EDD2A1C04F300813B3E /* FractionConverter.swift in Sources */,
+				C6BF7ED32A19677800813B3E /* ConsoleIO.swift in Sources */,
+				C6BF7EDB2A1AB6FF00813B3E /* Stack.swift in Sources */,
+				C6BF7ED92A1972CA00813B3E /* FractionCalculator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,10 +263,13 @@
 		C6BF7ED02A189F8400813B3E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2LFVVU7NZC;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -254,10 +277,13 @@
 		C6BF7ED12A189F8400813B3E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2LFVVU7NZC;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
