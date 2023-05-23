@@ -7,7 +7,7 @@
 
 import Foundation
 
-// Ideally such dependencies should be registered and resolved by a DI framework, but for such a small project like this would be overkill
+// Ideally such dependencies should be registered and resolved by a DI framework, but for such a small project like this, it would be overkill
 let consoleIO = ConsoleIO()
 let fractionOperations = FractionOperations(consoleIO: consoleIO)
 

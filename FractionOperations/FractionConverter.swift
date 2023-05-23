@@ -27,17 +27,17 @@ class FractionConverter {
     static func calculateDecimalToFraction(_ decimal: Double) -> String {
         // copy the input to be able to modify it when it is negative
         var number = decimal
+
+        // negative numbers' floor and so fraction part are not calculated properly hence we need to handle the absolute value. negative sign will be put before the result in the end of this method
         if number < 0 {
             number *= -1
         }
 
-
-
         let integralPart = floor(number)
         let fractionPart = number - integralPart
 
-        //handling if the user entered integer calues or the calculation result has no fraction part
-        if fractionPart == 0 { return String(Int64(integralPart)) }
+        //handling if the user entered integer values or the calculation result has no fraction part
+        if fractionPart == 0 { return decimal < 0 ? "-".appending(String(Int64(integralPart))) : String(Int64(integralPart)) }
 
         let integralEquivalentOfFraction = fractionPart * (Double(precision))
         let roundedIntegralEquivalent = integralEquivalentOfFraction.rounded()

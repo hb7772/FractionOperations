@@ -8,7 +8,6 @@
 import Foundation
 
 class FractionOperations {
-
     var consoleIO: ConsolIOProtocol
 
     init(consoleIO: ConsolIOProtocol) {
@@ -32,16 +31,20 @@ class FractionOperations {
             }
             let calculator = FractionCalculator(consoleIO: consoleIO)
 
-            if let postfixInput = calculator.convertInfixToPostFix(input) {
-                //consoleIO.writeMessage("\nThe result of the conversion: \(String(describing: calcRes))")
-                let decimalResult = calculator.calculateRPNResult(postfixInput)
-//                consoleIO.writeMessage("\nThe result of the calculation decimal: \(String(describing: decimalResult))")
-
-                let fractionResult = FractionConverter.calculateDecimalToFraction(decimalResult)
-                consoleIO.writeMessage("\nThe result of the calculation decimal: \(String(describing: fractionResult))")
-            } else {
-                consoleIO.writeMessage("\nError: converting infix operations to postfix failed.", to: .error)
+            guard let postfixInput = calculator.convertInfixToPostFix(input) else {
+                consoleIO.writeMessage("So converting infix operations to postfix failed.", to: .error)
+                continue
             }
+            //consoleIO.writeMessage("\nThe result of the conversion: \(String(describing: postfixInput))")
+
+            guard let decimalResult = calculator.calculateRPNResult(postfixInput) else {
+                consoleIO.writeMessage("So calculating result from the Reverse Polish Notation array failed.", to: .error)
+                continue
+            }
+            //consoleIO.writeMessage("\nThe result of the calculation decimal: \(String(describing: decimalResult))")
+
+            let fractionResult = FractionConverter.calculateDecimalToFraction(decimalResult)
+            consoleIO.writeMessage("\nThe result of the calculation decimal: \(String(describing: fractionResult))")
         }
     }
 }
