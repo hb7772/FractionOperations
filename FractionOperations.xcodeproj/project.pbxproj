@@ -10,9 +10,17 @@
 		C6BF7ECC2A189F8400813B3E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7ECB2A189F8400813B3E /* main.swift */; };
 		C6BF7ED32A19677800813B3E /* ConsoleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7ED22A19677800813B3E /* ConsoleIO.swift */; };
 		C6BF7ED52A19683900813B3E /* FractionOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7ED42A19683900813B3E /* FractionOperations.swift */; };
-		C6BF7ED92A1972CA00813B3E /* FractionCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7ED82A1972CA00813B3E /* FractionCalculator.swift */; };
+		C6BF7ED92A1972CA00813B3E /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7ED82A1972CA00813B3E /* Calculator.swift */; };
 		C6BF7EDB2A1AB6FF00813B3E /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7EDA2A1AB6FF00813B3E /* Stack.swift */; };
-		C6BF7EDD2A1C04F300813B3E /* FractionConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7EDC2A1C04F300813B3E /* FractionConverter.swift */; };
+		C6BF7EDD2A1C04F300813B3E /* DecimalToFractionConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7EDC2A1C04F300813B3E /* DecimalToFractionConverter.swift */; };
+		C6BF7EE82A1D6B1C00813B3E /* FractionCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7EE72A1D6B1C00813B3E /* FractionCalculatorTests.swift */; };
+		C6BF7EEC2A1D6C0600813B3E /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7ED82A1972CA00813B3E /* Calculator.swift */; };
+		C6BF7EED2A1D6C3400813B3E /* ConsoleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7ED22A19677800813B3E /* ConsoleIO.swift */; };
+		C6BF7EEE2A1D6D3700813B3E /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7EDA2A1AB6FF00813B3E /* Stack.swift */; };
+		C6BF7EF02A1E987F00813B3E /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7EEF2A1E987F00813B3E /* InputValidator.swift */; };
+		C6BF7EF12A1E98CA00813B3E /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7EEF2A1E987F00813B3E /* InputValidator.swift */; };
+		C6BF7EF32A1E9E5A00813B3E /* FractionOperationsErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7EF22A1E9E5A00813B3E /* FractionOperationsErrors.swift */; };
+		C6BF7EF42A1E9E5A00813B3E /* FractionOperationsErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7EF22A1E9E5A00813B3E /* FractionOperationsErrors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,13 +40,24 @@
 		C6BF7ECB2A189F8400813B3E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C6BF7ED22A19677800813B3E /* ConsoleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleIO.swift; sourceTree = "<group>"; };
 		C6BF7ED42A19683900813B3E /* FractionOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractionOperations.swift; sourceTree = "<group>"; };
-		C6BF7ED82A1972CA00813B3E /* FractionCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractionCalculator.swift; sourceTree = "<group>"; };
+		C6BF7ED82A1972CA00813B3E /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		C6BF7EDA2A1AB6FF00813B3E /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
-		C6BF7EDC2A1C04F300813B3E /* FractionConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractionConverter.swift; sourceTree = "<group>"; };
+		C6BF7EDC2A1C04F300813B3E /* DecimalToFractionConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalToFractionConverter.swift; sourceTree = "<group>"; };
+		C6BF7EE52A1D6B1C00813B3E /* FractionOperationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FractionOperationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6BF7EE72A1D6B1C00813B3E /* FractionCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractionCalculatorTests.swift; sourceTree = "<group>"; };
+		C6BF7EEF2A1E987F00813B3E /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
+		C6BF7EF22A1E9E5A00813B3E /* FractionOperationsErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractionOperationsErrors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C6BF7EC52A189F8400813B3E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6BF7EE22A1D6B1C00813B3E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -52,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				C6BF7ECA2A189F8400813B3E /* FractionOperations */,
+				C6BF7EE62A1D6B1C00813B3E /* FractionOperationsTests */,
 				C6BF7EC92A189F8400813B3E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				C6BF7EC82A189F8400813B3E /* FractionOperations */,
+				C6BF7EE52A1D6B1C00813B3E /* FractionOperationsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,11 +91,21 @@
 				C6BF7ECB2A189F8400813B3E /* main.swift */,
 				C6BF7ED22A19677800813B3E /* ConsoleIO.swift */,
 				C6BF7ED42A19683900813B3E /* FractionOperations.swift */,
-				C6BF7ED82A1972CA00813B3E /* FractionCalculator.swift */,
+				C6BF7ED82A1972CA00813B3E /* Calculator.swift */,
 				C6BF7EDA2A1AB6FF00813B3E /* Stack.swift */,
-				C6BF7EDC2A1C04F300813B3E /* FractionConverter.swift */,
+				C6BF7EDC2A1C04F300813B3E /* DecimalToFractionConverter.swift */,
+				C6BF7EEF2A1E987F00813B3E /* InputValidator.swift */,
+				C6BF7EF22A1E9E5A00813B3E /* FractionOperationsErrors.swift */,
 			);
 			path = FractionOperations;
+			sourceTree = "<group>";
+		};
+		C6BF7EE62A1D6B1C00813B3E /* FractionOperationsTests */ = {
+			isa = PBXGroup;
+			children = (
+				C6BF7EE72A1D6B1C00813B3E /* FractionCalculatorTests.swift */,
+			);
+			path = FractionOperationsTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,6 +128,23 @@
 			productReference = C6BF7EC82A189F8400813B3E /* FractionOperations */;
 			productType = "com.apple.product-type.tool";
 		};
+		C6BF7EE42A1D6B1C00813B3E /* FractionOperationsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6BF7EE92A1D6B1C00813B3E /* Build configuration list for PBXNativeTarget "FractionOperationsTests" */;
+			buildPhases = (
+				C6BF7EE12A1D6B1C00813B3E /* Sources */,
+				C6BF7EE22A1D6B1C00813B3E /* Frameworks */,
+				C6BF7EE32A1D6B1C00813B3E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FractionOperationsTests;
+			productName = FractionOperationsTests;
+			productReference = C6BF7EE52A1D6B1C00813B3E /* FractionOperationsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -108,6 +156,9 @@
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					C6BF7EC72A189F8400813B3E = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					C6BF7EE42A1D6B1C00813B3E = {
 						CreatedOnToolsVersion = 14.2;
 					};
 				};
@@ -126,21 +177,47 @@
 			projectRoot = "";
 			targets = (
 				C6BF7EC72A189F8400813B3E /* FractionOperations */,
+				C6BF7EE42A1D6B1C00813B3E /* FractionOperationsTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C6BF7EE32A1D6B1C00813B3E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C6BF7EC42A189F8400813B3E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6BF7EF32A1E9E5A00813B3E /* FractionOperationsErrors.swift in Sources */,
 				C6BF7ECC2A189F8400813B3E /* main.swift in Sources */,
 				C6BF7ED52A19683900813B3E /* FractionOperations.swift in Sources */,
-				C6BF7EDD2A1C04F300813B3E /* FractionConverter.swift in Sources */,
+				C6BF7EDD2A1C04F300813B3E /* DecimalToFractionConverter.swift in Sources */,
 				C6BF7ED32A19677800813B3E /* ConsoleIO.swift in Sources */,
+				C6BF7EF02A1E987F00813B3E /* InputValidator.swift in Sources */,
 				C6BF7EDB2A1AB6FF00813B3E /* Stack.swift in Sources */,
-				C6BF7ED92A1972CA00813B3E /* FractionCalculator.swift in Sources */,
+				C6BF7ED92A1972CA00813B3E /* Calculator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6BF7EE12A1D6B1C00813B3E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6BF7EF12A1E98CA00813B3E /* InputValidator.swift in Sources */,
+				C6BF7EEE2A1D6D3700813B3E /* Stack.swift in Sources */,
+				C6BF7EF42A1E9E5A00813B3E /* FractionOperationsErrors.swift in Sources */,
+				C6BF7EED2A1D6C3400813B3E /* ConsoleIO.swift in Sources */,
+				C6BF7EE82A1D6B1C00813B3E /* FractionCalculatorTests.swift in Sources */,
+				C6BF7EEC2A1D6C0600813B3E /* Calculator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +365,38 @@
 			};
 			name = Release;
 		};
+		C6BF7EEA2A1D6B1C00813B3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bence.FractionOperationsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C6BF7EEB2A1D6B1C00813B3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bence.FractionOperationsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -305,6 +414,15 @@
 			buildConfigurations = (
 				C6BF7ED02A189F8400813B3E /* Debug */,
 				C6BF7ED12A189F8400813B3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6BF7EE92A1D6B1C00813B3E /* Build configuration list for PBXNativeTarget "FractionOperationsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6BF7EEA2A1D6B1C00813B3E /* Debug */,
+				C6BF7EEB2A1D6B1C00813B3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

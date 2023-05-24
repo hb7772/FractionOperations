@@ -8,7 +8,7 @@
 import Foundation
 
 struct Stack<Element> {
-    fileprivate var storage: [Element] = []
+    private var storage: [Element] = []
 
     mutating func push(_ element: Element) {
         storage.append(element)

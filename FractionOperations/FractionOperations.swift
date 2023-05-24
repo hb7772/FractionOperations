@@ -29,21 +29,33 @@ class FractionOperations {
                 shouldQuit = true
                 break
             }
-            let calculator = FractionCalculator(consoleIO: consoleIO)
+            let calculator = Calculator<InputValidator>()
 
-            guard let postfixInput = calculator.convertInfixToPostFix(input) else {
-                consoleIO.writeMessage("So converting infix operations to postfix failed.", to: .error)
+            var postfixInput: [String]
+            do {
+                postfixInput = try calculator.convertInfixToPostFix(input)
+            } catch let error as FractionOperationsErrors {
+                consoleIO.writeMessage("Converting infix operations to postfix failed: \(error.errorInfo)", to: .error)
+                continue
+            } catch {
+                consoleIO.writeMessage("Unexpected error occured during converting infix to postfix operation", to: .error)
                 continue
             }
             //consoleIO.writeMessage("\nThe result of the conversion: \(String(describing: postfixInput))")
 
-            guard let decimalResult = calculator.calculateRPNResult(postfixInput) else {
-                consoleIO.writeMessage("So calculating result from the Reverse Polish Notation array failed.", to: .error)
+            var decimalResult: Double
+            do {
+                decimalResult = try calculator.calculateRPNResult(postfixInput)
+            } catch let error as FractionOperationsErrors {
+                consoleIO.writeMessage("Calculating result from the Reverse Polish Notation array failed: \(error.errorInfo)", to: .error)
+                continue
+            } catch {
+                consoleIO.writeMessage("Unexpected error occured during calculating the reverse polish notation result", to: .error)
                 continue
             }
             //consoleIO.writeMessage("\nThe result of the calculation decimal: \(String(describing: decimalResult))")
 
-            let fractionResult = FractionConverter.calculateDecimalToFraction(decimalResult)
+            let fractionResult = DecimalToFractionConverter.calculateDecimalToFraction(decimalResult)
             consoleIO.writeMessage("\nThe result of the calculation decimal: \(String(describing: fractionResult))")
         }
     }
