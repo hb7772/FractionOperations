@@ -90,7 +90,7 @@ final class CalculatorTests: XCTestCase {
         let result = try calculator.convertInfixToPostFix("1+2")
 
         // Assert
-        XCTAssertEqual(result, ["1", "2", "4", "3", "/", "9", "-", "*", "+"])
+        XCTAssertEqual(result, ["1", "2", "4", "*", "3", "/", "+", "9", "-"])
     }
 
 }

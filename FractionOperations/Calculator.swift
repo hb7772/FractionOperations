@@ -11,6 +11,11 @@ import Foundation
 
 class Calculator<InputValidator: InputValidatorProtocol> {
 
+    private var precedence = ["+" : 0,
+                              "-" : 0,
+                              "*" : 1,
+                              "/" : 1,
+                              "&" : 0]
     // MARK: - Public methods
     func convertInfixToPostFix(_ input: String) throws -> [String] {
         var output = [String]()
@@ -23,7 +28,7 @@ class Calculator<InputValidator: InputValidatorProtocol> {
             let itemAsString = item.description
 
             // handling error: invalid characters, numbers
-            guard InputValidator.validOperatorsArrayWithPrecendce.contains(itemAsString) ||
+            guard InputValidator.validOperatorsArray.contains(itemAsString) ||
                     InputValidator.validNumbersArray.contains(itemAsString) else {
                 throw FractionOperationsErrors.invalidCharacters
             }
@@ -34,27 +39,42 @@ class Calculator<InputValidator: InputValidatorProtocol> {
                     throw FractionOperationsErrors.moreThanOneOperatorBetweenOperands
                 }
             } else {
-                guard InputValidator.validOperatorsArrayWithPrecendce.contains(itemAsString) else {
+                guard InputValidator.validOperatorsArray.contains(itemAsString) else {
                     throw FractionOperationsErrors.moreThanOneDigitNumberProvided
                 }
             }
 
-            // reverse polush notation starts here
+            // reverse polish notation starts here
             if InputValidator.validNumbersArray.contains(itemAsString) {
                 output.append(itemAsString)
             } else {
-                if let peek = operators.peek() {
-                    let indexOfCurrentOperator = InputValidator.validOperatorsArrayWithPrecendce
-                        .firstIndex(of: itemAsString)!
-                        .advanced(by: 0)
+//                if let peek = operators.peek() {
+//                    let indexOfCurrentOperator = InputValidator.validOperatorsArrayWithPrecendce
+//                        .firstIndex(of: itemAsString)!
+//                        .advanced(by: 0)
+//
+//                    let indexOfAlreadyStackedOperator = InputValidator.validOperatorsArrayWithPrecendce
+//                        .firstIndex(of: peek)!
+//                        .advanced(by: 0)
+//
+//                    let indexOfCurrentOperator = precedence[itemAsString]!
+//                    let indexOfAlreadyStackedOperator = precedence[peek]!
+//
+//                    if indexOfCurrentOperator <= indexOfAlreadyStackedOperator {
+//                        let tmp = operators.pop()!
+//                        output.append(tmp)
+//                    }
+//                }
+                while let peek = operators.peek() {
 
-                    let indexOfAlreadyStackedOperator = InputValidator.validOperatorsArrayWithPrecendce
-                        .firstIndex(of: peek)!
-                        .advanced(by: 0)
+                    let indexOfCurrentOperator = precedence[itemAsString]!
+                    let indexOfAlreadyStackedOperator = precedence[peek]!
 
                     if indexOfCurrentOperator <= indexOfAlreadyStackedOperator {
                         let tmp = operators.pop()!
                         output.append(tmp)
+                    } else {
+                        break
                     }
                 }
                 operators.push(itemAsString)
@@ -74,7 +94,7 @@ class Calculator<InputValidator: InputValidatorProtocol> {
         var resultArray = rpnString
 
         for char in resultArray {
-            if InputValidator.validOperatorsArrayWithPrecendce.contains(char) {
+            if InputValidator.validOperatorsArray.contains(char) {
                 // prepare the operands
                 // here we can use force unwrap because we can be sure the current value being held by the iterator is contained in the array
                 let indexOfCurrentChar = resultArray.firstIndex(of: char)!
