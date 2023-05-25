@@ -55,7 +55,7 @@ class Calculator<InputValidator: InputValidatorProtocol> {
                     var precedenceOfCurrentOperator: Int
                     var precedenceOfPeekOperatorOnStack: Int
 
-                    // here we need to handle that if '&' character is to be compared, than it has higher precedence than every other operator except the /, which repserents the fraction.
+                    // here we need to handle that if '&' character is to be compared, than it has higher precedence than every other operator except the '/', which repserents the fraction.
                     // hence if we deal with '&', I use a different precedence dictionary
                     if itemAsString == "&"  ||
                         peek == "&" {
@@ -77,7 +77,7 @@ class Calculator<InputValidator: InputValidatorProtocol> {
             }
         }
 
-        // here we just went through the input, and handled lower precedence operators, now we need to empty the operator stack and move them to the output array
+        // here we just went through the input, and moved lower precedence operators into the output array, now we need to empty the operator stack and move them to the output array
         while !operators.isEmpty {
             let tmp = operators.pop()!
             output.append(tmp)

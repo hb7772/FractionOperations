@@ -24,7 +24,7 @@ class DecimalToFractionConverter {
         }
     }
 
-    static func calculateDecimalToFraction(_ decimal: Double) -> String {
+    static func convertDecimalToFraction(_ decimal: Double) -> String {
         // copy the input to be able to modify it if necessary
         var number = decimal
 

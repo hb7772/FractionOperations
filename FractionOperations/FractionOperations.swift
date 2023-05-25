@@ -64,7 +64,7 @@ class FractionOperations {
             }
             //consoleIO.writeMessage("\nThe result of the calculation decimal: \(String(describing: decimalResult))")
 
-            let fractionResult = DecimalToFractionConverter.calculateDecimalToFraction(decimalResult)
+            let fractionResult = DecimalToFractionConverter.convertDecimalToFraction(decimalResult)
             consoleIO.writeMessage("\nThe result of the calculation decimal: \(String(describing: fractionResult))")
         }
     }

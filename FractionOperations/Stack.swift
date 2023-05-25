@@ -25,9 +25,4 @@ struct Stack<Element> {
     var isEmpty: Bool {
         peek() == nil
     }
-
-    var depth: Int {
-        storage.count
-    }
-
 }

@@ -25,6 +25,11 @@
 		C6BF7EF92A1EB32300813B3E /* TestInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7EF82A1EB32300813B3E /* TestInputValidator.swift */; };
 		C6BF7EFA2A1EB32300813B3E /* TestInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7EF82A1EB32300813B3E /* TestInputValidator.swift */; };
 		C6BF7EFB2A1EB65700813B3E /* ConsoleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF7ED22A19677800813B3E /* ConsoleIO.swift */; };
+		C6ED32CA2A1FF9E3009B502B /* DecimalToFractionConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED32C92A1FF9E3009B502B /* DecimalToFractionConverterTests.swift */; };
+		C6ED32CC2A1FFA07009B502B /* InputValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED32CB2A1FFA07009B502B /* InputValidatorTests.swift */; };
+		C6ED32CE2A2007F5009B502B /* StackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED32CD2A2007F5009B502B /* StackTests.swift */; };
+		C6ED32D02A200AF5009B502B /* FractionOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED32CF2A200AF5009B502B /* FractionOperationsTests.swift */; };
+		C6ED32D22A200B81009B502B /* TestConsoleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED32D12A200B81009B502B /* TestConsoleIO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +57,11 @@
 		C6BF7EEF2A1E987F00813B3E /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
 		C6BF7EF22A1E9E5A00813B3E /* FractionOperationsErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractionOperationsErrors.swift; sourceTree = "<group>"; };
 		C6BF7EF82A1EB32300813B3E /* TestInputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInputValidator.swift; sourceTree = "<group>"; };
+		C6ED32C92A1FF9E3009B502B /* DecimalToFractionConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalToFractionConverterTests.swift; sourceTree = "<group>"; };
+		C6ED32CB2A1FFA07009B502B /* InputValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidatorTests.swift; sourceTree = "<group>"; };
+		C6ED32CD2A2007F5009B502B /* StackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackTests.swift; sourceTree = "<group>"; };
+		C6ED32CF2A200AF5009B502B /* FractionOperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractionOperationsTests.swift; sourceTree = "<group>"; };
+		C6ED32D12A200B81009B502B /* TestConsoleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConsoleIO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +120,10 @@
 			children = (
 				C6BF7EF72A1EB2FE00813B3E /* Utils */,
 				C6BF7EE72A1D6B1C00813B3E /* CalculatorTests.swift */,
+				C6ED32C92A1FF9E3009B502B /* DecimalToFractionConverterTests.swift */,
+				C6ED32CB2A1FFA07009B502B /* InputValidatorTests.swift */,
+				C6ED32CD2A2007F5009B502B /* StackTests.swift */,
+				C6ED32CF2A200AF5009B502B /* FractionOperationsTests.swift */,
 			);
 			path = FractionOperationsTests;
 			sourceTree = "<group>";
@@ -118,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				C6BF7EF82A1EB32300813B3E /* TestInputValidator.swift */,
+				C6ED32D12A200B81009B502B /* TestConsoleIO.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -230,9 +245,14 @@
 				C6BF7EFB2A1EB65700813B3E /* ConsoleIO.swift in Sources */,
 				C6BF7EF12A1E98CA00813B3E /* InputValidator.swift in Sources */,
 				C6BF7EFA2A1EB32300813B3E /* TestInputValidator.swift in Sources */,
+				C6ED32D02A200AF5009B502B /* FractionOperationsTests.swift in Sources */,
+				C6ED32CC2A1FFA07009B502B /* InputValidatorTests.swift in Sources */,
 				C6BF7EF52A1EB21800813B3E /* FractionOperations.swift in Sources */,
 				C6BF7EEE2A1D6D3700813B3E /* Stack.swift in Sources */,
+				C6ED32D22A200B81009B502B /* TestConsoleIO.swift in Sources */,
+				C6ED32CA2A1FF9E3009B502B /* DecimalToFractionConverterTests.swift in Sources */,
 				C6BF7EF42A1E9E5A00813B3E /* FractionOperationsErrors.swift in Sources */,
+				C6ED32CE2A2007F5009B502B /* StackTests.swift in Sources */,
 				C6BF7EE82A1D6B1C00813B3E /* CalculatorTests.swift in Sources */,
 				C6BF7EEC2A1D6C0600813B3E /* Calculator.swift in Sources */,
 				C6BF7EF62A1EB21F00813B3E /* DecimalToFractionConverter.swift in Sources */,

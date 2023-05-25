@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TestInputValidator: InputValidatorProtocol {
+final class TestInputValidator: InputValidatorProtocol {
     // Stubs
     static var stub_validatingInput: (String) throws -> String = { _ in return "" }
 
