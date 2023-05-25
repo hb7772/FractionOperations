@@ -7,7 +7,12 @@
 
 import Foundation
 
-class DecimalToFractionConverter {
+protocol DecimalToFractionConverterProtocol {
+    static func greatestCommonDivider(_ num1: Int64, _ num2: Int64) -> Int64
+    static func convertDecimalToFraction(_ decimal: Double) -> String
+}
+
+class DecimalToFractionConverter: DecimalToFractionConverterProtocol {
     static let precision: Int64 = 1000000000
 
     static func greatestCommonDivider(_ num1: Int64, _ num2: Int64) -> Int64 {

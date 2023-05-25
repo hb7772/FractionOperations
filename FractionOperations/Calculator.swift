@@ -7,20 +7,14 @@
 
 import Foundation
 
-class Calculator<InputValidator: InputValidatorProtocol> {
+protocol CalculatorProtocol {
+    static func convertInfixToPostFix(_ input: String) throws -> [String]
+    static func calculateRPNResult(_ rpnString: [String]) throws -> Double
+}
 
-    private var precedence = ["+" : 0,
-                              "-" : 0,
-                              "*" : 1,
-                              "/" : 1]
-
-    private var precedenceWith_and_sign = ["+" : 0,
-                                           "-" : 0,
-                                           "*" : 1,
-                                           "&" : 2,
-                                           "/" : 3]
+class Calculator<InputValidator: InputValidatorProtocol>: CalculatorProtocol {
     // MARK: - Public methods
-    func convertInfixToPostFix(_ input: String) throws -> [String] {
+    static func convertInfixToPostFix(_ input: String) throws -> [String] {
         var output = [String]()
         var operators = Stack<String>()
 
@@ -59,11 +53,11 @@ class Calculator<InputValidator: InputValidatorProtocol> {
                     // hence if we deal with '&', I use a different precedence dictionary
                     if itemAsString == "&"  ||
                         peek == "&" {
-                        precedenceOfCurrentOperator = precedenceWith_and_sign[itemAsString]!
-                        precedenceOfPeekOperatorOnStack = precedenceWith_and_sign[peek]!
+                        precedenceOfCurrentOperator = InputValidator.precedenceWith_and_sign[itemAsString]!
+                        precedenceOfPeekOperatorOnStack = InputValidator.precedenceWith_and_sign[peek]!
                     } else {
-                        precedenceOfCurrentOperator = precedence[itemAsString]!
-                        precedenceOfPeekOperatorOnStack = precedence[peek]!
+                        precedenceOfCurrentOperator = InputValidator.precedence[itemAsString]!
+                        precedenceOfPeekOperatorOnStack = InputValidator.precedence[peek]!
                     }
 
                     if precedenceOfCurrentOperator <= precedenceOfPeekOperatorOnStack {
@@ -85,7 +79,7 @@ class Calculator<InputValidator: InputValidatorProtocol> {
         return output
     }
 
-    func calculateRPNResult(_ rpnString: [String]) throws -> Double {
+    static func calculateRPNResult(_ rpnString: [String]) throws -> Double {
         var result = 0.0
         var resultArray = rpnString
 

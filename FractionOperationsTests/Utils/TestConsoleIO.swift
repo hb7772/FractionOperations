@@ -10,6 +10,8 @@ import Foundation
 final class TestConsoleIO: ConsolIOProtocol {
 
     // Stubs
+    static var stub_inputCycleCount = 0
+
     var stub_printUsage: () -> Void = { return }
     var stub_getInput: () throws -> String = { return "" }
     var stub_writeMessage: (String, OutputType) -> Void = { _, _ in return }

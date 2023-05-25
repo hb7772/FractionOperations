@@ -30,6 +30,8 @@
 		C6ED32CE2A2007F5009B502B /* StackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED32CD2A2007F5009B502B /* StackTests.swift */; };
 		C6ED32D02A200AF5009B502B /* FractionOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED32CF2A200AF5009B502B /* FractionOperationsTests.swift */; };
 		C6ED32D22A200B81009B502B /* TestConsoleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED32D12A200B81009B502B /* TestConsoleIO.swift */; };
+		C6ED32D42A201876009B502B /* TestCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED32D32A201876009B502B /* TestCalculator.swift */; };
+		C6ED32D62A2022BC009B502B /* TestDecimalToFractionConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ED32D52A2022BC009B502B /* TestDecimalToFractionConverter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +64,8 @@
 		C6ED32CD2A2007F5009B502B /* StackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackTests.swift; sourceTree = "<group>"; };
 		C6ED32CF2A200AF5009B502B /* FractionOperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractionOperationsTests.swift; sourceTree = "<group>"; };
 		C6ED32D12A200B81009B502B /* TestConsoleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConsoleIO.swift; sourceTree = "<group>"; };
+		C6ED32D32A201876009B502B /* TestCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCalculator.swift; sourceTree = "<group>"; };
+		C6ED32D52A2022BC009B502B /* TestDecimalToFractionConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDecimalToFractionConverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,8 @@
 			children = (
 				C6BF7EF82A1EB32300813B3E /* TestInputValidator.swift */,
 				C6ED32D12A200B81009B502B /* TestConsoleIO.swift */,
+				C6ED32D32A201876009B502B /* TestCalculator.swift */,
+				C6ED32D52A2022BC009B502B /* TestDecimalToFractionConverter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -256,6 +262,8 @@
 				C6BF7EE82A1D6B1C00813B3E /* CalculatorTests.swift in Sources */,
 				C6BF7EEC2A1D6C0600813B3E /* Calculator.swift in Sources */,
 				C6BF7EF62A1EB21F00813B3E /* DecimalToFractionConverter.swift in Sources */,
+				C6ED32D42A201876009B502B /* TestCalculator.swift in Sources */,
+				C6ED32D62A2022BC009B502B /* TestDecimalToFractionConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

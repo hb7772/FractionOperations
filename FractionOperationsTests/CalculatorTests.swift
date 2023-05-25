@@ -7,17 +7,8 @@
 import XCTest
 
 final class CalculatorTests: XCTestCase {
-
-    var calculator: Calculator<TestInputValidator>!
-
-
-    override func setUp()  {
-        calculator = Calculator()
-    }
-
-    override func tearDown()  {
-        calculator = nil
-    }
+    
+    typealias calculator = Calculator<TestInputValidator>
 
     // MARK: - convertInfixToPostFix negative tests
     func testConvertInfixToPostFixThrowsErrorIfInputValidatorThrowsError() {

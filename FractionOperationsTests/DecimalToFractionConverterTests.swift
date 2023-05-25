@@ -2,7 +2,7 @@
 //  DecimalToFractionConverterTests.swift
 //  FractionOperationsTests
 //
-//  Created by Bence Hupp on 2023. 05. 25..
+//  Created by Bence Hupp
 //
 
 import XCTest

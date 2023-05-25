@@ -10,6 +10,8 @@ import Foundation
 protocol InputValidatorProtocol {
     static var validOperatorsArray: [String] { get }
     static var validNumbersArray: [String] { get }
+    static var precedence: [String : Int] { get }
+    static var precedenceWith_and_sign: [String : Int] { get }
 
     static func validatingInput(_ input: String) throws -> String
 }
@@ -17,6 +19,16 @@ protocol InputValidatorProtocol {
 class InputValidator: InputValidatorProtocol {
     static let validOperatorsArray = ["+", "-", "*", "&", "/"]
     static let validNumbersArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    static let precedence = ["+" : 0,
+                             "-" : 0,
+                             "*" : 1,
+                             "/" : 1]
+    
+    static let precedenceWith_and_sign = ["+" : 0,
+                                          "-" : 0,
+                                          "*" : 1,
+                                          "&" : 2,
+                                          "/" : 3]
 
     static func validatingInput(_ input: String) throws -> String {
         // handling error: empty input

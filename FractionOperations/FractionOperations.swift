@@ -7,7 +7,8 @@
 
 import Foundation
 
-class FractionOperations {
+class FractionOperations<converter: DecimalToFractionConverterProtocol,
+                         calculator: CalculatorProtocol> {
     var consoleIO: ConsolIOProtocol
 
     init(consoleIO: ConsolIOProtocol) {
@@ -38,7 +39,6 @@ class FractionOperations {
                 shouldQuit = true
                 break
             }
-            let calculator = Calculator<InputValidator>()
 
             var postfixInput: [String]
             do {
@@ -64,7 +64,7 @@ class FractionOperations {
             }
             //consoleIO.writeMessage("\nThe result of the calculation decimal: \(String(describing: decimalResult))")
 
-            let fractionResult = DecimalToFractionConverter.convertDecimalToFraction(decimalResult)
+            let fractionResult = converter.convertDecimalToFraction(decimalResult)
             consoleIO.writeMessage("\nThe result of the calculation decimal: \(String(describing: fractionResult))")
         }
     }

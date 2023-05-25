@@ -10,7 +10,7 @@ import XCTest
 final class FractionOperationsTests: XCTestCase {
 
     var consoleIO: TestConsoleIO!
-    var fractionOperations: FractionOperations!
+    var fractionOperations: FractionOperations<TestDecimalToFractionConverter, TestCalculator>!
 
     override func setUp() {
         consoleIO = TestConsoleIO()
@@ -20,6 +20,7 @@ final class FractionOperationsTests: XCTestCase {
     override func tearDown() {
         consoleIO = nil
         fractionOperations = nil
+        TestConsoleIO.stub_inputCycleCount = 0
     }
 
     func testPrintUsageIsCalledWhenStaticModeIsInvoked() {
@@ -53,8 +54,12 @@ final class FractionOperationsTests: XCTestCase {
         // Arrange
         let expectation = XCTestExpectation(description: "consoleIO.printUsage() is called when staticMode is invoked")
         consoleIO.stub_getInput = {
-            expectation.fulfill()
-            return "result"
+            if TestConsoleIO.stub_inputCycleCount < 3 {
+                TestConsoleIO.stub_inputCycleCount += 1
+                expectation.fulfill()
+                return "4*1/2"
+            }
+            return "exit"
         }
 
         // Act
