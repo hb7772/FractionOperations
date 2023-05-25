@@ -9,7 +9,7 @@ import Foundation
 
 enum FractionOperationsErrors: Error, Equatable {
     case emptyInput
-    case inputOnlyContainedOperators
+    case inputOnlyContainedOperatorsAsLastCharacter
     case invalidCharacters
     case moreThanOneOperatorBetweenOperands
     case moreThanOneDigitNumberProvided
@@ -19,8 +19,8 @@ enum FractionOperationsErrors: Error, Equatable {
         switch self {
         case .emptyInput:
             return "Empty input, please provide proper operators and operands"
-        case .inputOnlyContainedOperators:
-            return "The input only contained operators but not operands"
+        case .inputOnlyContainedOperatorsAsLastCharacter:
+            return "The last character of the input was an operator which makes no sense"
         case .invalidCharacters:
             return "Invalid characters were provided as input. Please only use decimal, 1 digit numbers and the following operators: '+', '-', '*', '/', '&'"
         case .moreThanOneOperatorBetweenOperands:

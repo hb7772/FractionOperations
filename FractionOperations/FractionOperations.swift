@@ -23,7 +23,16 @@ class FractionOperations {
 
         var shouldQuit = false
         while !shouldQuit {
-            let input = consoleIO.getInput()
+            var input: String
+            do {
+                input = try consoleIO.getInput()
+            } catch let error as FractionOperationsErrors {
+                consoleIO.writeMessage("Reading input from the console failed: \(error.errorInfo)", to: .error)
+                continue
+            } catch {
+                consoleIO.writeMessage("Unexpected error occured during reading the input", to: .error)
+                continue
+            }
 
             if input == "exit" {
                 shouldQuit = true

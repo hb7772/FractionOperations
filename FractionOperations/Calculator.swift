@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 class Calculator<InputValidator: InputValidatorProtocol> {
 
     private var precedence = ["+" : 0,

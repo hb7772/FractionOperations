@@ -15,7 +15,7 @@ enum OutputType {
 protocol ConsolIOProtocol {
     func writeMessage(_ message: String, to: OutputType)
     func printUsage()
-    func getInput() -> String
+    func getInput() throws -> String
 }
 
 extension ConsolIOProtocol {
@@ -38,10 +38,14 @@ class ConsoleIO: ConsolIOProtocol {
       writeMessage("-Type ./\(executableName) without an option to enter interactive mode\n-Then enter fractions, where the whole part is separated from the fraction part with the '&'\n-Legal operations: '+', '-', '*', '/' \n-Operands and operators shall be separated by one or more spaces\n-Improper fractions, whole numbers, and negative numbers are allowed as operands\n-If you want to quite type 'exit'")
     }
 
-    func getInput() -> String {
+    func getInput() throws -> String {
       let keyboard = FileHandle.standardInput
       let inputData = keyboard.availableData
-      let strData = String(data: inputData, encoding: String.Encoding.utf8)!
+
+        // handling error if the input is not a valid UTF8 character
+        guard let strData = String(data: inputData, encoding: String.Encoding.utf8) else {
+            throw FractionOperationsErrors.invalidCharacters
+        }
         return strData.trimmingCharacters(in: CharacterSet.newlines)
     }
 }

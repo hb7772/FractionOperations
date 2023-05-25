@@ -24,19 +24,12 @@ class InputValidator: InputValidatorProtocol {
             throw FractionOperationsErrors.emptyInput
         }
 
-        // handling white spaces
+        // handling white spaces, no error here, we just "trim" them be it anywhere
         var formattedInput = input.replacingOccurrences(of: "\\s+", with: "", options: .regularExpression)
 
-        // removing '+', '-', '*', '&', '/' in the end of the string which makes no sense
-        while
-            formattedInput.last != nil,
-            Self.validOperatorsArray.contains(formattedInput.last!.description) {
-            formattedInput.removeLast()
-        }
-
-        // handling previusly emptied input, in case we only had operators which were completely removed from the input
-        guard !formattedInput.isEmpty else {
-            throw FractionOperationsErrors.inputOnlyContainedOperators
+        // handling error if '+', '-', '*', '&', '/' are in the end of the string
+        if Self.validOperatorsArray.contains(formattedInput.last!.description) {
+            throw FractionOperationsErrors.inputOnlyContainedOperatorsAsLastCharacter
         }
 
         // handling negative and positive number in the beginning
