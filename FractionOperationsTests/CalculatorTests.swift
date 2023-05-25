@@ -87,7 +87,7 @@ final class CalculatorTests: XCTestCase {
         TestInputValidator.stub_validatingInput = { _ in return "1+2*4/3-9" }
 
         // Act
-        let result = try calculator.convertInfixToPostFix("1+2")
+        let result = try calculator.convertInfixToPostFix("1+2*4/3-9")
 
         // Assert
         XCTAssertEqual(result, ["1", "2", "4", "*", "3", "/", "+", "9", "-"])

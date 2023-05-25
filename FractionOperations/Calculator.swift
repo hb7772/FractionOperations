@@ -14,8 +14,13 @@ class Calculator<InputValidator: InputValidatorProtocol> {
     private var precedence = ["+" : 0,
                               "-" : 0,
                               "*" : 1,
-                              "/" : 1,
-                              "&" : 0]
+                              "/" : 1]
+
+    private var precedenceWith_and_sign = ["+" : 0,
+                                           "-" : 0,
+                                           "*" : 1,
+                                           "&" : 2,
+                                           "/" : 3]
     // MARK: - Public methods
     func convertInfixToPostFix(_ input: String) throws -> [String] {
         var output = [String]()
@@ -48,29 +53,22 @@ class Calculator<InputValidator: InputValidatorProtocol> {
             if InputValidator.validNumbersArray.contains(itemAsString) {
                 output.append(itemAsString)
             } else {
-//                if let peek = operators.peek() {
-//                    let indexOfCurrentOperator = InputValidator.validOperatorsArrayWithPrecendce
-//                        .firstIndex(of: itemAsString)!
-//                        .advanced(by: 0)
-//
-//                    let indexOfAlreadyStackedOperator = InputValidator.validOperatorsArrayWithPrecendce
-//                        .firstIndex(of: peek)!
-//                        .advanced(by: 0)
-//
-//                    let indexOfCurrentOperator = precedence[itemAsString]!
-//                    let indexOfAlreadyStackedOperator = precedence[peek]!
-//
-//                    if indexOfCurrentOperator <= indexOfAlreadyStackedOperator {
-//                        let tmp = operators.pop()!
-//                        output.append(tmp)
-//                    }
-//                }
                 while let peek = operators.peek() {
+                    var precedenceOfCurrentOperator: Int
+                    var precedenceOfPeekOperatorOnStack: Int
 
-                    let indexOfCurrentOperator = precedence[itemAsString]!
-                    let indexOfAlreadyStackedOperator = precedence[peek]!
+                    // here we need to handle that if '&' character is to be compared, than it has higher precedence than every other operator except the /, which repserents the fraction.
+                    // hence if we deal with '&', I use a different precedence dictionary
+                    if itemAsString == "&"  ||
+                        peek == "&" {
+                        precedenceOfCurrentOperator = precedenceWith_and_sign[itemAsString]!
+                        precedenceOfPeekOperatorOnStack = precedenceWith_and_sign[peek]!
+                    } else {
+                        precedenceOfCurrentOperator = precedence[itemAsString]!
+                        precedenceOfPeekOperatorOnStack = precedence[peek]!
+                    }
 
-                    if indexOfCurrentOperator <= indexOfAlreadyStackedOperator {
+                    if precedenceOfCurrentOperator <= precedenceOfPeekOperatorOnStack {
                         let tmp = operators.pop()!
                         output.append(tmp)
                     } else {
