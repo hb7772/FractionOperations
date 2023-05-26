@@ -9,7 +9,9 @@ import Foundation
 
 final class TestInputValidator: InputValidatorProtocol {
     // Stubs
-    static var stub_validatingInput: (String) throws -> String = { _ in return "" }
+    static var stub_validateInputDirectlyFromUser: (String) throws -> String = { _ in return "" }
+    static var stub_validateRPNArray: ([String]) -> Bool = { _ in return true }
+    static var stub_validateOperatorAndOperand: (String) -> Bool = { _ in return true }
 
     // Protocol implementation
     static var validOperatorsArray: [String] = ["+", "-", "*", "&", "/"]
@@ -24,9 +26,15 @@ final class TestInputValidator: InputValidatorProtocol {
                                           "&" : 2,
                                           "/" : 3]
 
-    static func validatingInput(_ input: String) throws -> String {
-        return try stub_validatingInput(input)
+    static func validateInputDirectlyFromUser(_ input: String) throws -> String {
+        return try stub_validateInputDirectlyFromUser(input)
     }
 
-    
+    static func validateRPNArray(_ input: [String]) -> Bool {
+        return stub_validateRPNArray(input)
+    }
+
+    static func validateOperatorAndOperand(_ input: String) -> Bool {
+        return stub_validateOperatorAndOperand(input)
+    }
 }

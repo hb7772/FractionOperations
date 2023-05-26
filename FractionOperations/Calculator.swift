@@ -18,15 +18,14 @@ class Calculator<InputValidator: InputValidatorProtocol>: CalculatorProtocol {
         var output = [String]()
         var operators = Stack<String>()
 
-        let validatedAndFormattedInput = try InputValidator.validatingInput(input)
+        let validatedAndFormattedInput = try InputValidator.validateInputDirectlyFromUser(input)
 
         for (index, item) in validatedAndFormattedInput.enumerated() {
-            // Converting the character iterator type to string for better handling later on this scope
+            // Converting the character iterator type to string for better handling later in this scope
             let itemAsString = item.description
 
             // handling error: invalid characters, numbers
-            guard InputValidator.validOperatorsArray.contains(itemAsString) ||
-                    InputValidator.validNumbersArray.contains(itemAsString) else {
+            guard InputValidator.validateOperatorAndOperand(itemAsString) else {
                 throw FractionOperationsErrors.invalidCharacters
             }
 
@@ -61,6 +60,7 @@ class Calculator<InputValidator: InputValidatorProtocol>: CalculatorProtocol {
                     }
 
                     if precedenceOfCurrentOperator <= precedenceOfPeekOperatorOnStack {
+                        // force cast can be safely performed here, because we earlier checked the stack with peek()
                         let tmp = operators.pop()!
                         output.append(tmp)
                     } else {
@@ -80,6 +80,11 @@ class Calculator<InputValidator: InputValidatorProtocol>: CalculatorProtocol {
     }
 
     static func calculateRPNResult(_ rpnString: [String]) throws -> Double {
+        // handling invalid input characters here as well, if this method does not get a pre-validated input from convertInfixToPostFix
+        guard InputValidator.validateRPNArray(rpnString) else {
+            throw FractionOperationsErrors.invalidCharacters
+        }
+
         var result = 0.0
         var resultArray = rpnString
 
@@ -109,6 +114,7 @@ class Calculator<InputValidator: InputValidatorProtocol>: CalculatorProtocol {
                     result = leftHand / rightHand
                     break
                 default:
+                    // here we just break, because we already checked whether the current character is a valid operator
                     break
                 }
                 // removing the 2 used operands and the operator from the array

@@ -13,7 +13,9 @@ protocol InputValidatorProtocol {
     static var precedence: [String : Int] { get }
     static var precedenceWith_and_sign: [String : Int] { get }
 
-    static func validatingInput(_ input: String) throws -> String
+    static func validateInputDirectlyFromUser(_ input: String) throws -> String
+    static func validateRPNArray(_ input: [String]) -> Bool
+    static func validateOperatorAndOperand(_ input: String) -> Bool
 }
 
 class InputValidator: InputValidatorProtocol {
@@ -23,14 +25,14 @@ class InputValidator: InputValidatorProtocol {
                              "-" : 0,
                              "*" : 1,
                              "/" : 1]
-    
+
     static let precedenceWith_and_sign = ["+" : 0,
                                           "-" : 0,
                                           "*" : 1,
                                           "&" : 2,
                                           "/" : 3]
 
-    static func validatingInput(_ input: String) throws -> String {
+    static func validateInputDirectlyFromUser(_ input: String) throws -> String {
         // handling error: empty input
         guard input != "" else {
             throw FractionOperationsErrors.emptyInput
@@ -51,5 +53,33 @@ class InputValidator: InputValidatorProtocol {
         }
 
         return formattedInput
+    }
+
+//    static func validateRPNArray(_ input: [String]) -> Bool {
+//        for item in input {
+//            if Self.validOperatorsArray.contains(item) ||
+//                Self.validNumbersArray.contains(item) {
+//                continue
+//            } else {
+//                return false
+//            }
+//        }
+//        return true
+//    }
+    static func validateRPNArray(_ input: [String]) -> Bool {
+        for item in input {
+            if Self.validateOperatorAndOperand(item) {
+                continue
+            } else {
+                return false
+            }
+        }
+        return true
+    }
+
+
+    static func validateOperatorAndOperand(_ input: String) -> Bool {
+        return Self.validOperatorsArray.contains(input) ||
+                        Self.validNumbersArray.contains(input)
     }
 }

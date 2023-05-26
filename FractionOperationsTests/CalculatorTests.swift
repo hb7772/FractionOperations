@@ -13,7 +13,7 @@ final class CalculatorTests: XCTestCase {
     // MARK: - convertInfixToPostFix negative tests
     func testConvertInfixToPostFixThrowsErrorIfInputValidatorThrowsError() {
         // Arrange
-        TestInputValidator.stub_validatingInput = { _ in throw FractionOperationsErrors.inputOnlyContainedOperatorsAsLastCharacter }
+        TestInputValidator.stub_validateInputDirectlyFromUser = { _ in throw FractionOperationsErrors.inputOnlyContainedOperatorsAsLastCharacter }
 
         // Act & Assert
         XCTAssertThrowsError(try calculator.convertInfixToPostFix("3 + q")) { error in
@@ -21,9 +21,10 @@ final class CalculatorTests: XCTestCase {
         }
     }
 
-    func testConvertInfixToPostFixThrowsErrorIfInputIsNotAValidOperator() {
+    func testConvertInfixToPostFixThrowsErrorIfValidateOperatorAndOperandReturnsFalse() {
         // Arrange
-        TestInputValidator.stub_validatingInput = { _ in return "1q2" }
+        TestInputValidator.stub_validateInputDirectlyFromUser = { _ in return "1q2" }
+        TestInputValidator.stub_validateOperatorAndOperand = { _ in return false }
 
         // Act & Assert
         XCTAssertThrowsError(try calculator.convertInfixToPostFix("+1q2")) { error in
@@ -31,19 +32,9 @@ final class CalculatorTests: XCTestCase {
         }
     }
 
-    func testConvertInfixToPostFixThrowsErrorIfInputIsNotAValidNumber() {
-        // Arrange
-        TestInputValidator.stub_validatingInput = { _ in return "s+d" }
-
-        // Act & Assert
-        XCTAssertThrowsError(try calculator.convertInfixToPostFix("+s+d")) { error in
-            XCTAssertEqual(error as! FractionOperationsErrors, FractionOperationsErrors.invalidCharacters, "Test failed, because expected error type differs from the actual")
-        }
-    }
-
     func testConvertInfixToPostFixThrowsErrorIfInputHasMoreThenOneDigitNumber() {
         // Arrange
-        TestInputValidator.stub_validatingInput = { _ in return "11+2" }
+        TestInputValidator.stub_validateInputDirectlyFromUser = { _ in return "11+2" }
 
         // Act & Assert
         XCTAssertThrowsError(try calculator.convertInfixToPostFix("+11+2")) { error in
@@ -53,7 +44,7 @@ final class CalculatorTests: XCTestCase {
 
     func testConvertInfixToPostFixThrowsErrorIfInputHasMoreThenOneOperatorsNextToEachOther() {
         // Arrange
-        TestInputValidator.stub_validatingInput = { _ in return "1++2" }
+        TestInputValidator.stub_validateInputDirectlyFromUser = { _ in return "1++2" }
 
         // Act & Assert
         XCTAssertThrowsError(try calculator.convertInfixToPostFix("+1++2")) { error in
@@ -64,7 +55,7 @@ final class CalculatorTests: XCTestCase {
     // MARK: - convertInfixToPostFix positive tests
     func testConvertInfixToPostFixSucceedsIfItHasValidInputWithOnlyAddition() throws {
         // Arrange
-        TestInputValidator.stub_validatingInput = { _ in return "1+2" }
+        TestInputValidator.stub_validateInputDirectlyFromUser = { _ in return "1+2" }
 
         // Act
         let result = try calculator.convertInfixToPostFix("1+2")
@@ -75,7 +66,7 @@ final class CalculatorTests: XCTestCase {
 
     func testConvertInfixToPostFixSucceedsIfItHasValidInputWithMixedOperators() throws {
         // Arrange
-        TestInputValidator.stub_validatingInput = { _ in return "1+2*4/3-9" }
+        TestInputValidator.stub_validateInputDirectlyFromUser = { _ in return "1+2*4/3-9" }
 
         // Act
         let result = try calculator.convertInfixToPostFix("1+2*4/3-9")
@@ -86,7 +77,7 @@ final class CalculatorTests: XCTestCase {
 
     func testConvertInfixToPostFixSucceedsIfItHasValidInputWithMixedOperatorsAndTheSpecialOperator() throws {
         // Arrange
-        TestInputValidator.stub_validatingInput = { _ in return "2/6+1&4/3-2" }
+        TestInputValidator.stub_validateInputDirectlyFromUser = { _ in return "2/6+1&4/3-2" }
 
         // Act
         let result = try calculator.convertInfixToPostFix("2/6+1&4/3-2")
@@ -97,7 +88,7 @@ final class CalculatorTests: XCTestCase {
 
     func testConvertInfixToPostFixSucceedsIfItHasValidInputWithZeroInTheBeginning() throws {
         // Arrange
-        TestInputValidator.stub_validatingInput = { _ in return "0-7/8+4&2/9" }
+        TestInputValidator.stub_validateInputDirectlyFromUser = { _ in return "0-7/8+4&2/9" }
 
         // Act
         let result = try calculator.convertInfixToPostFix("0-7/8+4&2/9")
@@ -107,7 +98,17 @@ final class CalculatorTests: XCTestCase {
     }
 
     // MARK: - calculateRPNResult tests
-    func testcalculateRPNResultIfItHasBasicOperators() throws {
+    func testCalculateRPNResultIfValidateRPNArrayReturnsFalse() throws {
+        // Arrange
+        TestInputValidator.stub_validateRPNArray = { _ in return false }
+
+        // Act & Assert
+        XCTAssertThrowsError(try calculator.calculateRPNResult(["2", "3", "/"])) { error in
+            XCTAssertEqual(error as! FractionOperationsErrors, FractionOperationsErrors.invalidCharacters, "Test failed, because expected error type differs from the actual")
+        }
+    }
+
+    func testCalculateRPNResultIfItHasBasicOperators() throws {
         // Arrange
 
         // Act
@@ -117,7 +118,7 @@ final class CalculatorTests: XCTestCase {
         XCTAssertEqual(result, -0.5)
     }
 
-    func testcalculateRPNResultIfItHasBasicAndSpecialOperators() throws {
+    func testCalculateRPNResultIfItHasBasicAndSpecialOperators() throws {
         // Arrange
 
         // Act
