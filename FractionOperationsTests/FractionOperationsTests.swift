@@ -37,7 +37,7 @@ final class FractionOperationsTests: XCTestCase {
 
     func testGetInputIsCalledWhenInteractiveModeIsInvokedAndExitEntered() {
         // Arrange
-        let expectation = XCTestExpectation(description: "consoleIO.printUsage() is called when staticMode is invoked")
+        let expectation = XCTestExpectation(description: "consoleIO.GetInput() is called when interactiveMode() is invoked and the input is 'exit'")
         consoleIO.stub_getInput = {
             expectation.fulfill()
             return "exit"
@@ -50,9 +50,9 @@ final class FractionOperationsTests: XCTestCase {
         wait(for: [expectation], timeout: 2)
     }
 
-    func testGetInputIsCalledWhenInteractiveModeIsInvoked() {
+    func testGetInputIsCalledWhenInteractiveModeIsInvokedAndValidInputEntered() {
         // Arrange
-        let expectation = XCTestExpectation(description: "consoleIO.printUsage() is called when staticMode is invoked")
+        let expectation = XCTestExpectation(description: "consoleIO.GetInput() is called when interactiveMode() is invoked and the input is 'exit'")
         consoleIO.stub_getInput = {
             if TestConsoleIO.stub_inputCycleCount < 3 {
                 TestConsoleIO.stub_inputCycleCount += 1
@@ -199,4 +199,36 @@ final class FractionOperationsTests: XCTestCase {
     }
 
     // Happy flow test cases
+    func testConvertDecimalToFractionInvokedWhenNoMethodThrows() {
+        // Arrange
+        consoleIO.stub_getInput = {
+            if TestConsoleIO.stub_inputCycleCount < 1 {
+                TestConsoleIO.stub_inputCycleCount += 1
+                return "3*4!5"
+            }
+            return "exit"
+        }
+
+        TestCalculator.stub_convertInfixToPostFix = { _ in
+            return ["2", "5", "*"]
+        }
+
+
+        TestCalculator.stub_calculateRPNResult = { _ in
+            return 9
+        }
+
+        let convertDecimalToFractionNotCalledExpectation = XCTestExpectation(description: "converter.convertDecimalToFraction isinvoked")
+        TestDecimalToFractionConverter.stub_convertDecimalToFraction = { _ in
+            convertDecimalToFractionNotCalledExpectation.fulfill()
+            return "-3"
+        }
+
+        // Act
+        fractionOperations.interactiveMode()
+
+        // Assert
+        self.wait(for: [convertDecimalToFractionNotCalledExpectation], timeout: 2)
+
+    }
 }

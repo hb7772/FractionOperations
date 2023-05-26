@@ -20,7 +20,7 @@ class FractionOperations<converter: DecimalToFractionConverterProtocol,
     }
 
     func interactiveMode() {
-        consoleIO.writeMessage("\nWelcome to Fraction Operations. This command line tool performs basic operations '+', '-, '*' and '/' on fractions as input, in interactive mode (continuously), and produces a fractional result. The user can quit the program by typing 'exit' and hitting enter. Have fun :)")
+        consoleIO.writeMessage("\nWelcome to Fraction Operations. This command line tool performs basic operations '+', '-, '*' and '/' on fractions as input in interactive mode (continuously), and produces a fractional result. The user can quit the program by typing 'exit' and hitting enter. Have fun :)")
 
         var shouldQuit = false
         while !shouldQuit {
@@ -50,6 +50,7 @@ class FractionOperations<converter: DecimalToFractionConverterProtocol,
                 consoleIO.writeMessage("Unexpected error occured during converting infix to postfix operation", to: .error)
                 continue
             }
+            // This line just helps testing and debugging by printing in-between result
             //consoleIO.writeMessage("\nThe result of the conversion: \(String(describing: postfixInput))")
 
             var decimalResult: Double
@@ -62,10 +63,11 @@ class FractionOperations<converter: DecimalToFractionConverterProtocol,
                 consoleIO.writeMessage("Unexpected error occured during calculating the reverse polish notation result", to: .error)
                 continue
             }
+            // This line just helps testing and debugging by printing in-between result
             //consoleIO.writeMessage("\nThe result of the calculation decimal: \(String(describing: decimalResult))")
 
             let fractionResult = converter.convertDecimalToFraction(decimalResult)
-            consoleIO.writeMessage("\nThe result of the calculation decimal: \(String(describing: fractionResult))")
+            consoleIO.writeMessage("\nThe fraction result of the calculation: \(String(describing: fractionResult))")
         }
     }
 }

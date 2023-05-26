@@ -55,17 +55,6 @@ class InputValidator: InputValidatorProtocol {
         return formattedInput
     }
 
-//    static func validateRPNArray(_ input: [String]) -> Bool {
-//        for item in input {
-//            if Self.validOperatorsArray.contains(item) ||
-//                Self.validNumbersArray.contains(item) {
-//                continue
-//            } else {
-//                return false
-//            }
-//        }
-//        return true
-//    }
     static func validateRPNArray(_ input: [String]) -> Bool {
         for item in input {
             if Self.validateOperatorAndOperand(item) {

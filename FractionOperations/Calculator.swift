@@ -89,6 +89,7 @@ class Calculator<InputValidator: InputValidatorProtocol>: CalculatorProtocol {
         var resultArray = rpnString
 
         for char in resultArray {
+            // we should start calculation when we find an operator. If we find operand, then we continue with iteration
             if InputValidator.validOperatorsArray.contains(char) {
                 // prepare the operands
                 // here we can use force unwrap because we can be sure the current value being held by the iterator is contained in the array
@@ -114,7 +115,7 @@ class Calculator<InputValidator: InputValidatorProtocol>: CalculatorProtocol {
                     result = leftHand / rightHand
                     break
                 default:
-                    // here we just break, because we already checked whether the current character is a valid operator
+                    // here we just break, because we already checked above whether the current character is a valid operator
                     break
                 }
                 // removing the 2 used operands and the operator from the array
